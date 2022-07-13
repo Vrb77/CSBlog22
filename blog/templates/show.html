@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+{% block content %}
+<h1>show blog page</h1>
+{% for y in showblog%}
+
+<h1>Blog Title:{{y.btitle}}</h1>
+<h2>Blog Description:<br>{{y.desc}}</h2>
+<br>
+
+{% endfor %}
+
+<form method="POST" class="post-form" action="#">
+    {% csrf_token %}
+<div class="input-box">
+    <input type="text" name="cbody" placeholder="Add a Comment" >
+</div>
+<div class="input-box">
+    <input type="text" name="bcid" value="{{comm.bid}}" readonly >
+</div>
+<div class="input-box button">
+    <input type="Submit">
+</div>
+{% if messages %}
+{% for mess in messages%}
+{{mess}}
+{% endfor%}
+{%endif%}
+</form>
+{% for x in showcomment%}
+{{x.cbody}} 
+<br>
+{% endfor %} 
+{% endblock %}

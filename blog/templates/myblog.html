@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+{% block content %}
+Username:
+{% for x in details%}
+
+{{x.username}}
+<br>
+
+{% endfor %}
+<h1>My Blogs</h1>
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">Blog Id</th>
+          <th scope="col">Blog Title</th>
+          <th scope="col">Blog Show</th>
+          <th scope="col">Blog Update</th>
+          <th scope="col">Blog Delete</th>
+        </tr>
+      </thead>
+{% for x in data%}
+<tbody>
+    <tr>
+<th scope="row">{{x.bid}}</th>
+<td>{{x.btitle}}</td>
+    <td><a href="{%url 'show' bid=x.bid%}"><button type="button" class="btn btn-primary">Show</button></a></td>
+        <td><a href="{%url 'update' bid=x.bid%}"><button type="button" class="btn btn-success">Update</button></a></td>
+            <td><a href="{%url 'delete' bid=x.bid id=user.id%}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+
+
+{% endfor %}
+</table>
+
+
+{% endblock %}

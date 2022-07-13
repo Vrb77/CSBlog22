@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div style=" position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);">
+
+<h1>Update Blog</h1>
+
+<form method="POST" class = 'card p-3 bg-light' style="border:1px solid black">
+   
+    <!-- Security token by Django -->
+    {% csrf_token %}
+    <!-- form as paragraph -->
+    {{ form.as_p }}
+   
+ <input type="submit" value="Update">
+ <center><a href="{%url 'myblog' id=user.id%}"><button type="button" class="btn btn-info">Go Back</button></a></center>
+    {% if messages %}
+            {% for mess in messages%}
+            {{mess}}
+            {% endfor%}
+            {%endif%}
+</form>
+
+{% endblock %}

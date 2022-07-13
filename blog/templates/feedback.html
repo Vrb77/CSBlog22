@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+{% block content %}
+{% load static %}
+<h2>Send Your Feedback to us!!</h2>
+{% comment %} <img src="{% static 'feedback_img.png'%}" width="30%" height="auto"/>
+<form action="" method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
+    {% if messages %}
+            {% for mess in messages%}
+            {{mess}}
+            {% endfor%}
+            {%endif%}
+</form> {% endcomment %}
+
+<div class="container1">
+    <div class="left">
+        <img src="{% static 'feedback_img.png'%}" width="50%" height="auto"/>
+    </div>
+    <div class="right" style="margin-right:50px;">
+        <form action="" method='POST' style="border:2px solid black; padding:30px;">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
+            {% if messages %}
+                    {% for mess in messages%}
+                    {{mess}}
+                    {% endfor%}
+                    {%endif%}
+        </form>
+   
+    </div>
+  </div>
+{% endblock %}

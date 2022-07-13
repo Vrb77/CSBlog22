@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+{% block content %}<h1> Search Page</h1>
+{% load static %}
+
+<h3>Search Results :-</h3>
+{% for x in allblog%}
+
+<div class="card" style="width: 60rem; margin-left:auto;margin-right:auto;">
+    Blog id:{{x.bid}}<br>
+    {{x.date}} <br>
+    <div class="card-body">
+      <h5 class="card-title">Blog Title:{{x.btitle}}</h5>
+      <p class="card-text">Description:{{x.desc}}</p>
+      <p class="card-text">Author Name:{{x.aname}}</p>
+    </div>
+  </div>
+
+<br>
+<br>
+{% empty %}
+<center><h4>Result Not Found</h4>
+<img src="{% static 'result_not_found.webp'%}" width="50%" height="auto"/>
+</center>
+{% endfor %}
+
+{% endblock %}

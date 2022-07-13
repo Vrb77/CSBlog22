@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+{% block content %}
+<h2>Blog Form</h2>
+        <form method="POST" class="post-form" action="#">
+            {% csrf_token %}
+            
+            <div class="input-box">
+             Author Name:   <input type="text" name="aname" placeholder="Author name" value="{{display.username}}" readonly>
+            </div>
+          
+            <div class="input-box">
+             Blog Title:   <input type="text" name="btitle" placeholder="Blog title" >
+            </div>
+            Blog Description:
+            <div class="input-box">
+           <textarea id="w3review" name="desc" placeholder="Description"  rows="4" cols="50"></textarea>
+            </div>
+            <div class="input-box">
+             Date:   <input type="Date" name="date" placeholder="date" >
+            </div>
+            <div class="input-box">
+              user id:  <input type="text" name="user_id" value="{{display.id}}" placeholder="Blog title" readonly >
+            </div>
+
+            <div class="input-box button">
+                <input type="Submit">
+            </div>
+            {% if messages %}
+            {% for mess in messages%}
+            {{mess}}
+            {% endfor%}
+            {%endif%}
+        </form>
+
+        {% endblock %}

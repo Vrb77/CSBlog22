@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% block content %}
+<h1>delete blog page</h1>
+<form method="POST">
+    <!-- Security token by Django -->
+    {% csrf_token %}
+    {% for x in delblog%}
+    <h1>Are you want to delete this item?</h1>
+    <div
+      class="card"
+      style="width: 60rem; margin-left: auto; margin-right: auto"
+    >
+      Blog id:{{x.bid}}<br />
+      {{x.date}}
+      <p class="card-text">Author Name:{{x.aname}}</p>
+      <div class="card-body">
+        <h5 class="card-title">Blog Title:{{x.btitle}}</h5>
+        <p class="card-text">Description:{{x.desc}}</p>
+        <a href="{%url 'show' bid=x.bid%}"
+          ><button type="button" class="btn btn-success">Show Blog</button></a
+        >
+      </div>
+    </div>
+
+    {% endfor%}
+    <input type="submit" value="Yes" />
+    <a href="{%url 'myblog' id=user.id%}"><button type="button" class="btn btn-primary">Cancel</button></a>
+    
+</form>
+<a href="{%url 'myblog' id=user.id%}"><button type="button" class="btn btn-primary">Go Back</button></a>
+{% endblock %}

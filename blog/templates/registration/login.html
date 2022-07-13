@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block content %} 
+<body style="background-color: lightskyblue;">
+
+<br>
+<div style=" position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);">
+
+<form method="POST" class = 'card p-3 bg-light' style="border:1px solid black">
+    {% csrf_token %}
+    <h1>Login</h1>
+    {{form.as_p}}
+    
+    <button style="background-color:DodgerBlue;border-radius: 5px;border-color: DodgerBlue;"><h4 style="color:white">login</h4></button>
+</form> 
+ 
+</div>
+
+</body>
+{% endblock  %}

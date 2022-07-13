@@ -1,0 +1,32 @@
+input[type=submit]{
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .container1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+
+.left{
+    margin-top: 50px;
+    flex: 50%;
+}
+.right{
+    margin-top: 20px;
+    flex: 50%;
+}
+.left1{
+  
+    flex: 50%;
+}
+.right1{
+   
+    flex: 50%;
+}
