@@ -83,7 +83,12 @@ DATABASES = {
         'USER': 'mysqladmin',
         'PASSWORD': 'Pass@123',
         'HOST': 'demomysqlserver7.mysql.database.azure.com',
-        'PORT': '3306',  
+        'PORT': '3306',
+        'OPTIONS':{
+            'ssl':{
+                'ssl-ca':'./mysql.pem'
+            }
+        }  
     }
 }
 
