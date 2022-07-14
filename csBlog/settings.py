@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'csBlog.wsgi.application'
 DATABASES = {
     'default': {
       'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'BlogDatabase',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
+        'NAME': 'blogdatabase',
+        'USER': 'mysqladmin',
+        'PASSWORD': 'Pass@123',
+        'HOST': 'demomysqlserver7.mysql.database.azure.com',
         'PORT': '3306',  
     }
 }
