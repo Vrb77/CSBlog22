@@ -85,10 +85,10 @@ DATABASES = {
         'HOST': 'demomysqlserver7.mysql.database.azure.com',
         'PORT': '3306',
         'OPTIONS':{
-            "sslmode":"require"
-            # 'ssl':{
-            #     'ssl-ca':'./mysql.pem'
-            # }
+          
+            'ssl':{
+                'ssl-ca':'./mysql.pem'
+            }
         }, 
     }
 }

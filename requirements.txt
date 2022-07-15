@@ -1,3 +1,4 @@
 django==4.0.4
-whitenoise
+whitenoise # Static files
+python-dotenv # environmental variables
 mysqlclient
