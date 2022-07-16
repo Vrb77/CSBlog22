@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect,HttpResponseRedirect,get_object_or_404
+from django.shortcuts import render,redirect,HttpResponseRedirect,get_object_or_404,response
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import *
@@ -22,13 +22,32 @@ def aboutView(request):
     return render(request,'about.html')
 @csrf_protect
 def registerView(request):
+    if request.method == "GET":
+        # getting cookies
+        if 'logged_in' in request.COOKIES and 'username' in request.COOKIES:
+            context = {
+                'username':request.COOKIES['username'],
+                'login_status':request.COOKIES.get('logged_in'),
+            }
+            return render(request, 'registration/login.html', context)
+        else:
+            return render(request, 'registration/register.html')
+
     if request.method=="POST":
+        username=request.POST.get('username')
+        context = {
+                'username':username,
+                'login_status':'TRUE',
+            }
         form=UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login_url')
     else:
         form=UserCreationForm()
+    # setting cookies
+    response.set_cookie('username', username)
+    response.set_cookie('logged_in', True)
     return render(request,'registration/register.html',{'form':form})
 
 @login_required
