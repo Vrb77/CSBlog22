@@ -5,7 +5,7 @@ from .models import *
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import *
-
+from django.views.decorators.csrf import csrf_protect
 def indexView(request):
     return render(request,'index.html')
 
@@ -20,7 +20,7 @@ def homeView(request):
 @login_required
 def aboutView(request):
     return render(request,'about.html')
-
+@csrf_protect
 def registerView(request):
     if request.method=="POST":
         form=UserCreationForm(request.POST)
